@@ -17,17 +17,21 @@ namespace BancoTest.Servicos.Pessoas
             _contextoBD = contextoBD;
         }
 
-        public PessoaDTO ObterPessoaPorCPF(string CPF) 
+        public Pessoa ObterPessoaPorCPF(string CPF) 
         {
-            //Terminar
-            var pessoadto = _contextoBD.Pessoas.Find(CPF);
+            var pessoa = _contextoBD.Pessoas.Find(CPF);
+            return pessoa;            
+        }        
+        public PessoaDTO ObterPessoaDTOPorCPF(string CPF) 
+        {
+            var pessoa = ObterPessoaPorCPF(CPF);
             return new PessoaDTO
             {
-                PrimeiroNome = pessoadto.PrimeiroNome,
-                Sobrenome = pessoadto.Sobrenome,
-                CPF = pessoadto.CPF,
-                Email = pessoadto.Email,
-                Genero = pessoadto.Genero
+                PrimeiroNome = pessoa.PrimeiroNome,
+                Sobrenome = pessoa.Sobrenome,
+                CPF = pessoa.CPF,
+                Email = pessoa.Email,
+                Genero = pessoa.Genero
             };
         }
 

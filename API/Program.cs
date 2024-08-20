@@ -1,5 +1,4 @@
 using BancoTest.Infra;
-using BancoTest.Servicos.Pessoa;
 using BancoTest.Servicos.Pessoas;
 
 var builder = WebApplication.CreateBuilder(args);
