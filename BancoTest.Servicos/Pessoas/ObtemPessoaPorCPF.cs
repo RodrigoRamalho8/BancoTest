@@ -20,8 +20,15 @@ namespace BancoTest.Servicos.Pessoas
         public PessoaDTO ObterPessoaPorCPF(string CPF) 
         {
             //Terminar
-            new pessoadto = _contextoBD.Pessoas.Find(CPF);
-            return
+            var pessoadto = _contextoBD.Pessoas.Find(CPF);
+            return new PessoaDTO
+            {
+                PrimeiroNome = pessoadto.PrimeiroNome,
+                Sobrenome = pessoadto.Sobrenome,
+                CPF = pessoadto.CPF,
+                Email = pessoadto.Email,
+                Genero = pessoadto.Genero
+            };
         }
 
     }
