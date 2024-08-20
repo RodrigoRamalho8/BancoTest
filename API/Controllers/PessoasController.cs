@@ -13,11 +13,13 @@ namespace API.Controllers
     {
         private ContextoBD _contextoBD;
         private CadastraPessoa _cadastraPessoa;
+        private ObtemPessoaPorCPF _obtemPessoaPorCPF;
         
-        public PessoasController(ContextoBD contextoBD, CadastraPessoa cadastraPessoa) 
+        public PessoasController(ContextoBD contextoBD, CadastraPessoa cadastraPessoa, ObtemPessoaPorCPF obtemPessoaPorCPF) 
         { 
             _cadastraPessoa = cadastraPessoa;
             _contextoBD = contextoBD;
+            _obtemPessoaPorCPF = obtemPessoaPorCPF;
         }
         [HttpGet("ObterTodos")]
         public IEnumerable<PessoaDTO> Get()
@@ -32,19 +34,11 @@ namespace API.Controllers
             });
         }
         [HttpGet("ObterPorCPF")]
-        public PessoaDTO Get(string CPF)
+        public IActionResult Get(string CPF)
         {
             //Terminar
-            var pessoa = ObtemPessoaPorCPF.ObterPessoa
-            return new PessoaDTO
-            {
-                PrimeiroNome = pessoa.PrimeiroNome, 
-                Sobrenome = pessoa.Sobrenome, 
-                CPF = pessoa.CPF,
-                Email = pessoa.Email,
-                Genero = pessoa.Genero
-            };
-
+            _obtemPessoaPorCPF.ObterPessoaPorCPF(CPF);
+            return Ok();
         }
 
         [HttpPost]
