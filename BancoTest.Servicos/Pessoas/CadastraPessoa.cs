@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BancoTest.Servicos.Pessoa
+namespace BancoTest.Servicos.Pessoas
 {
 
     public class CadastraPessoa

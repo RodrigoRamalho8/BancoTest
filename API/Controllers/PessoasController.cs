@@ -1,7 +1,6 @@
 ﻿using BancoTest;
 using BancoTest.Infra;
 using BancoTest.Servicos.DTOs;
-using BancoTest.Servicos.Pessoa;
 using BancoTest.Servicos.Pessoas;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
@@ -36,9 +35,8 @@ namespace API.Controllers
         [HttpGet("ObterPorCPF")]
         public IActionResult Get(string CPF)
         {
-            //Terminar
-            _obtemPessoaPorCPF.ObterPessoaPorCPF(CPF);
-            return Ok();
+            var pessoa = _obtemPessoaPorCPF.ObterPessoaDTOPorCPF(CPF);
+            return Ok(pessoa);
         }
 
         [HttpPost]
