@@ -1,4 +1,5 @@
 using BancoTest.Infra;
+using BancoTest.Servicos.Cliente;
 using BancoTest.Servicos.Pessoas;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ContextoBD>();
 builder.Services.AddScoped<CadastraPessoa>();
 builder.Services.AddScoped<ObtemPessoaPorCPF>();
+builder.Services.AddScoped<CadastraCliente>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
